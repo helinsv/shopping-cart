@@ -10,8 +10,6 @@ import { Router } from '@angular/router';
 
 export class ProductsComponent implements OnInit {
   visible: boolean = false;
-
-
   products: Products[];
   cartProducts: any;
 
@@ -20,7 +18,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     let data = localStorage.getItem('cart');
-    if ( data !== "null") {
+    if ( data !== null) {
       this.cartProducts = JSON.parse(data);
     } else {
       this.cartProducts = [];

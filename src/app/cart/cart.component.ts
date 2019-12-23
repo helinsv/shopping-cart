@@ -40,12 +40,11 @@ export class CartComponent implements OnInit {
 
   deleteItem(item) {
     this.cartProducts.splice(item, 1);
-   // this.bill = this.bill - this.cartProducts[item].price;
     if (this.cartProducts.length) {
       localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+      this.UpdateToTotal();
     } else {
       localStorage.setItem('cart', null);
-      localStorage.removeItem('cart');
     }
   }
 
@@ -56,6 +55,7 @@ export class CartComponent implements OnInit {
       alert('Your bill is ' + this.bill);
     } else {
       alert('No items in a cart');
+      localStorage.removeItem('cart');
     }
 
   }
