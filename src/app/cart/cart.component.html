@@ -1,1 +1,42 @@
-<p>cart works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 ">
+            <h1>Carts</h1>
+        </div>
+    </div>
+    <hr>
+    <div class="row product" *ngFor="let item of cartProducts; let i=index">
+        <div class="col-md-4">
+            <img [src]="item.img" class="custom-image-style">
+        </div>
+        <div class="col-md-5">
+            <h3>{{item.title}}</h3>
+            <p>$ {{item.price*item.qt}}</p>
+        </div>
+        <div class="col-md-2">
+            <input type="number" class="form-control" (change)="UpdateToTotal()" [(ngModel)]="item.qt">
+        </div>
+        <div class="col-md-1">
+            <a (click)="deleteItem(i)" class="float-right text-danger"><strong>x</strong></a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row" *ngIf="!cartProducts.length">
+        <div class="col-md-4 offset-md-4">No items</div>
+    </div>
+</div>
+
+<hr>
+<div class="row">
+    <div class="col-md-6">
+        <span *ngIf="!cartProducts.length">$ 0</span>
+        <span *ngIf="cartProducts.length">$ {{bill}}</span>
+    </div>
+    <div class="col-md-6">
+        <button class="btn btn-primary btn-sm float-right" (click)="PayBills()">Add to bascket</button>
+    </div>
+
+
+</div>

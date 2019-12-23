@@ -4,27 +4,24 @@
             <h1>Products</h1>
         </div>
         <div class="col-md-10 custom-products-cart-container">
-            <div class="offset-md-8">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="dropdownMenu1" aria-haspopup="true" aria-expanded="false">
-                            <span class="glyphicon glyphicon-shoppinf-cart">Products added in cart:</span>
-                            <span class="caret">{{cartProducts.length}}</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-cart" role="menu" aria-labelledby="dropdownMenu1">
-                            <li *ngFor="let item of cartProducts">
-                                <div class="item product-cart-item row">
-                                    <div class="col-md-8" *ngIf="item">{{item.title}}</div>
-                                    <div class="col-md-4" *ngIf="item"><strong> £{{item.price}}</strong></div>
-                                </div>
-                            </li>
-                            <hr>
-                            <li><a class="btn btn-primary btn-block" role="button" (click)="goToCart()">View Cart</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-            </div>
+            <ul class="nav navbar-nav navbar-right float-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="dropdownMenu1" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-shoppinf-cart">Products added in cart:</span>
+                        <span class="caret">{{cartProducts.length}}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-cart" role="menu" aria-labelledby="dropdownMenu1">
+                        <li *ngFor="let item of cartProducts">
+                            <div class="item product-cart-item row">
+                                <div class="col-md-8" *ngIf="item">{{item.title}}</div>
+                                <div class="col-md-4" *ngIf="item"><strong> £{{item.price}}</strong></div>
+                            </div>
+                        </li>
+                        <hr>
+                        <li><a class="btn btn-primary btn-block" role="button" (click)="goToCart()">View Cart</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
     <hr>
@@ -32,7 +29,7 @@
     <div class="row">
         <div class="col-md-4 col-centered" *ngFor="let product of products; let i=index">
             <div class="card card-block">
-                <!--<img [src]="product.img" class="custom-image-style">-->
+                <img [src]="product.img" class="custom-image-style">
                 <div class="product-desc-container row">
                     <div class="container">
                         <h3>{{product.title}}</h3>
